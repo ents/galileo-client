@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import urllib2
 import sys
 import json
@@ -19,7 +21,7 @@ print "JSON received:"
 print text
 data=json.loads(text)
 for item in data:
-    filename=outputDir + item["ad_id"]+".txt";
+    filename=outputDir + item["ad_id"].zfill(6)+".txt";
     print(filename+": "+item["ad"])
     f = open(filename, "w");
     f.write(item["ad"])
